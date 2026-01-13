@@ -9,5 +9,5 @@ crawler = Crawler(
 
 results = crawler.run()
 
-with open("./outputs/pages_crawlers.json", "w") as f:
+with open("./outputs/products.json", "w") as f:
     json.dump(results, f)

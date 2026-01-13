@@ -63,7 +63,7 @@ class Crawler:
         self._throttle()
 
         # fetch
-        html = get_html_page(url, user_agent=self.user_agent)  # timeout si tu l'ajoutes dans get_html_page
+        html = get_html_page(url, user_agent=self.user_agent)
         if not html:
             self.visited.add(url)
             return {}
@@ -79,7 +79,7 @@ class Crawler:
         # add links
         for link in data.get("links", []):
             absolute = urljoin(url, link)
-            absolute, _ = urldefrag(absolute)  # retire les #ancres
+            absolute, _ = urldefrag(absolute)
             self.add_url(absolute)
 
         return data

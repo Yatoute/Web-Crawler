@@ -5,7 +5,7 @@ import json
 def parse_html(html: str):
     soup = BeautifulSoup(html, "html.parser")
 
-    # URL (best-effort) : canonical si présent
+    # URL : canonical si présent
     canonical = soup.select_one('link[rel="canonical"]')
     url = canonical["href"].strip() if canonical and canonical.get("href") else None
 
@@ -35,7 +35,7 @@ def parse_html(html: str):
             continue
         links.append(urljoin(base_for_join, href) if base_for_join else href)
 
-    # Product reviews : depuis le JSON caché id="reviews-data"
+    # Product reviews
     product_reviews = []
     reviews_tag = soup.select_one("#reviews-data")
     if reviews_tag and reviews_tag.string:

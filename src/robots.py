@@ -25,7 +25,7 @@ def is_authorized_to_parse(page_url: str, user_agent: str = "FlexScraper/1.0") -
         base_url = f"{parsed.scheme}://{parsed.netloc}"
         robots_txt = get_robots_txt(base_url, user_agent)
     except Exception:
-        # robots.txt inaccessible → autorisé par défaut
+        # robots.txt inaccessible, on autorise par défaut
         return True
 
     path = parsed.path or "/"
@@ -59,7 +59,7 @@ def is_authorized_to_parse(page_url: str, user_agent: str = "FlexScraper/1.0") -
     # Sinon nous sommes un User-Agent * si spécifié
     elif "*" in rules:
         agent_rules = rules["*"]
-    # Aucune règle → autorisé
+    # Aucune règle, autorisé
     else:
         return True
 

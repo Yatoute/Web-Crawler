@@ -52,7 +52,7 @@ class Crawler:
         self.queued.discard(url)
 
         if url in self.visited:
-            return {}  # ou None, comme tu préfères
+            return {} 
 
         # robots
         if not is_authorized_to_parse(url, self.user_agent):

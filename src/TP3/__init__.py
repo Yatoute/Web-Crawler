@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Set
+from typing import List, Dict, Any, Set, Optional
 import json
 
 from config import INDEX_PATHS
@@ -6,10 +6,11 @@ from utils import tokenize_text
 
 def load_index(index_path: str) -> Dict[str, Any]:
     """Load en index by given the index path file"""
+
     with open(index_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def resolve_origin_from_synonym(origin_synonym:str):
+def resolve_origin_from_synonym(origin_synonym:str) -> Optional[str]:
     """Resolve origin from synomym"""
     
     origin_synonym = origin_synonym.lower().strip()
@@ -23,7 +24,7 @@ brand_index = load_index(index_path=INDEX_PATHS["brand"])
 
 def find_docs_with_any_token(tokens_request:List[str]) -> Set[str]:
     """
-    Return the set of document IDs that contain at least one token
+    Return the set of document that contain at least one token
     from the given list across multiple indexes.
     """
     
@@ -42,7 +43,7 @@ def find_docs_with_any_token(tokens_request:List[str]) -> Set[str]:
 
 def find_docs_with_all_tokens(tokens_request:List[str]) -> Set[str]:
     """
-    Return the set of document IDs that contain all tokens
+    Return the set of documents that contain all tokens
     from the given list across multiple indexes.
     """
     
@@ -59,9 +60,7 @@ def find_docs_with_all_tokens(tokens_request:List[str]) -> Set[str]:
                 docs_found = docs_found & docs if docs_found else docs
                 
     return docs_found
-                
-              
-            
+
         
           
 

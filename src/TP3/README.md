@@ -59,9 +59,8 @@ Les scores de pertinence implémentés sont :
 
 Ces signaux sont combinés à l’aide d’un **modèle de ranking linéaire** :
 
-$
-score(d, q) = \sum_i w_i \cdot s_i(d, q)
-$
+score(d, q) = Σ_i w_i · s_i(d, q)
+
 
 où ( s_i ) représente un signal de pertinence et ( w_i ) son poids.
 

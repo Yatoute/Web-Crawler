@@ -28,8 +28,6 @@ Lors du parsing, les informations suivantes sont également extraites depuis l�
 * **ID produit**
 * **Variante**, si présente (`?variant=...`)
 
----
-
 ## Prétraitements
 
 Les champs textuels (titre, description, features textuelles) subissent les traitements suivants :

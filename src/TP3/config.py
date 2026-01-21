@@ -12,3 +12,5 @@ INDEX_PATHS = {
     "origin": INPUT_DIR / "origin_index.json",
     "origin_synonyms": INPUT_DIR / "origin_synonyms.json"
 }
+
+PRODUCTS_PATH = INPUT_DIR / "products.jsonl"
